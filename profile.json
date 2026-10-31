@@ -1,0 +1,38 @@
+{
+  "youtube": {
+    "minimum_subscribers": 77000,
+    "verified_on": "2026-10-30",
+    "url": "https://www.youtube.com/@AIsuperdomain"
+  },
+  "projects": [
+    {
+      "repo": "CortexReach/memory-lancedb-pro",
+      "stars": 4451
+    },
+    {
+      "repo": "win4r/AISuperDomain",
+      "stars": 1997
+    },
+    {
+      "repo": "win4r/ClawTeam-OpenClaw",
+      "stars": 1469
+    },
+    {
+      "repo": "win4r/cc-notebook",
+      "stars": 903
+    },
+    {
+      "repo": "win4r/GraphRAG4OpenWebUI",
+      "stars": 605
+    },
+    {
+      "repo": "win4r/openclaw-a2a-gateway",
+      "stars": 552
+    },
+    {
+      "repo": "win4r/OpenClaw-Skill",
+      "stars": 312
+    }
+  ],
+  "github_verified_on": "2026-10-31"
+}

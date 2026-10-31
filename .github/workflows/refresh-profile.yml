@@ -1,0 +1,35 @@
+name: Refresh profile stars
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 9 * * 1'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: true
+      - name: Update public GitHub statistics
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/render_profile.py --refresh
+      - name: Commit refreshed profile
+        run: |
+          git add README.md profile.json assets/
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: refresh profile project stars'
+          git push
