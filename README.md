@@ -20,9 +20,9 @@
 </p>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/metrics-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/metrics-light.svg">
-  <img src="./assets/metrics-light.svg" alt="10,289 GitHub stars across 7 featured projects · 77K+ YouTube subscribers" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/metrics-dark-3494e6786b7f.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/metrics-light-e655b82a2e30.svg">
+  <img src="./assets/metrics-light-e655b82a2e30.svg" alt="10,289 GitHub stars across 7 featured projects · 77K+ YouTube subscribers · 108,350 Bilibili followers" width="100%">
 </picture>
 
 <p align="center">
@@ -131,4 +131,4 @@ Hands-on AI tests, agent workflows and tutorials — with the projects and imple
   <sub>Find me on <a href="https://www.youtube.com/@AIsuperdomain">YouTube</a>, <a href="https://space.bilibili.com/3493277319825652">Bilibili</a>, <a href="https://x.com/AISuperDomain">X</a> or <a href="https://www.aivi.fyi/">the blog</a> · Away from the keyboard: archery.</sub>
 </p>
 
-<!-- GitHub stars refreshed 2026-10-31. YouTube 77K+ is a manually verified lower bound as of 2026-10-30; it is not a live subscriber counter. Stars sum only the 7 featured repositories, including the attributed ClawTeam adaptation. -->
+<!-- GitHub stars refreshed 2026-10-31. YouTube 77K+ is a manually verified lower bound as of 2026-10-30; it is not a live subscriber counter. Bilibili 108,350 was provided by the owner on 2026-10-30; it is not a live follower counter. Stars sum only the 7 featured repositories, including the attributed ClawTeam adaptation. -->

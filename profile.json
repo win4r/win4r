@@ -4,6 +4,11 @@
     "verified_on": "2026-10-30",
     "url": "https://www.youtube.com/@AIsuperdomain"
   },
+  "bilibili": {
+    "followers": 108350,
+    "provided_on": "2026-10-30",
+    "url": "https://space.bilibili.com/3493277319825652"
+  },
   "projects": [
     {
       "repo": "CortexReach/memory-lancedb-pro",

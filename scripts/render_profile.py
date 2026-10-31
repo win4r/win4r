@@ -78,16 +78,17 @@ def hero(t, animated=False, reduced=False):
 def metrics(t, data):
     total = sum(p['stars'] for p in data['projects'])
     youtube = f"{data['youtube']['minimum_subscribers'] // 1000}K+"
+    bilibili = f"{data['bilibili']['followers']:,}"
     c = f'<rect x="1" y="1" width="1198" height="156" rx="20" fill="{t["panel"]}" stroke="{t["line"]}"/>'
-    for x in [403,803]:
+    for x in [302,602,902]:
         c += f'<path d="M{x} 32V126" stroke="{t["line"]}"/>'
-    values = [(f'{total:,}', 'Stars across featured projects'), (youtube, 'YouTube subscribers'), (str(len(data['projects'])), 'Featured open-source projects')]
+    values = [(f'{total:,}', 'Stars across featured projects'), (youtube, 'YouTube subscribers'), (bilibili, 'Bilibili followers'), (str(len(data['projects'])), 'Featured open-source projects')]
     for i,(number,label) in enumerate(values):
-        x = 39 + i*400
-        c += txt(x,82,number,49,t['ink'],650,extra='letter-spacing="-1.5"')
-        c += txt(x,118,label,17,t['muted'])
-        c += f'<circle cx="{x+318}" cy="55" r="4" fill="{t["accent"]}"/>'
-    return svg(1200,158,c,f"{total:,} stars across {len(data['projects'])} featured projects · {youtube} YouTube subscribers")
+        x = 34 + i*300
+        c += txt(x,82,number,45,t['ink'],650,extra='letter-spacing="-1.5"')
+        c += txt(x,118,label,15,t['muted'])
+        c += f'<circle cx="{x+236}" cy="55" r="4" fill="{t["accent"]}"/>'
+    return svg(1200,158,c,f"{total:,} stars across {len(data['projects'])} featured projects · {youtube} YouTube subscribers · {bilibili} Bilibili followers")
 
 
 def flagship(t, stars):
@@ -137,17 +138,19 @@ def versioned_asset(stem):
 
 def picture(name, alt, width="100%"):
     reduced_source = (f'  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/{versioned_asset("hero-dark-static")}">\n' if name == 'hero' else '')
-    dark_source = (f'./assets/{versioned_asset("hero-dark")}' if name == 'hero' else f'./assets/{name}-dark.svg')
+    dark_source = (f'./assets/{versioned_asset(name+"-dark")}' if name in ['hero','metrics'] else f'./assets/{name}-dark.svg')
+    light_source = (f'./assets/{versioned_asset("metrics-light")}' if name == 'metrics' else f'./assets/{name}-light.svg')
     return f'''<picture>
 {reduced_source}  <source media="(prefers-color-scheme: dark)" srcset="{dark_source}">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/{name}-light.svg">
-  <img src="./assets/{name}-light.svg" alt="{html.escape(alt,quote=True)}" width="{width}">
+  <source media="(prefers-color-scheme: light)" srcset="{light_source}">
+  <img src="{light_source}" alt="{html.escape(alt,quote=True)}" width="{width}">
 </picture>'''
 
 
 def readme(data):
     stars = {p['repo']:p['stars'] for p in data['projects']}
     youtube = f"{data['youtube']['minimum_subscribers'] // 1000}K+"
+    bilibili = f"{data['bilibili']['followers']:,}"
     cards = [
       ('AISuperDomain','MULTI-MODEL WORKSPACE','Ask once. Compare answers from multiple AI models in one desktop workspace.',''),
       ('ClawTeam-OpenClaw','MULTI-AGENT COORDINATION','Bring CLI coding agents together with OpenClaw as the default agent.','OpenClaw adaptation of <a href="https://github.com/HKUDS/ClawTeam">HKUDS/ClawTeam</a>.'),
@@ -193,7 +196,7 @@ def readme(data):
   <a href="https://www.aivi.fyi/"><img src="./assets/blog.svg" alt="Read AI超元域's technical blog" width="138"></a>
 </p>
 
-{picture('metrics',f"{sum(stars.values()):,} GitHub stars across {len(data['projects'])} featured projects · {youtube} YouTube subscribers")}
+{picture('metrics',f"{sum(stars.values()):,} GitHub stars across {len(data['projects'])} featured projects · {youtube} YouTube subscribers · {bilibili} Bilibili followers")}
 
 <p align="center">
   <a href="#selected-open-source">Projects</a> &nbsp; / &nbsp;
@@ -250,7 +253,7 @@ Hands-on AI tests, agent workflows and tutorials — with the projects and imple
   <sub>Find me on <a href="https://www.youtube.com/@AIsuperdomain">YouTube</a>, <a href="https://space.bilibili.com/3493277319825652">Bilibili</a>, <a href="https://x.com/AISuperDomain">X</a> or <a href="https://www.aivi.fyi/">the blog</a> · Away from the keyboard: archery.</sub>
 </p>
 
-<!-- GitHub stars refreshed {data['github_verified_on']}. YouTube {youtube} is a manually verified lower bound as of {data['youtube']['verified_on']}; it is not a live subscriber counter. Stars sum only the {len(data['projects'])} featured repositories, including the attributed ClawTeam adaptation. -->
+<!-- GitHub stars refreshed {data['github_verified_on']}. YouTube {youtube} is a manually verified lower bound as of {data['youtube']['verified_on']}; it is not a live subscriber counter. Bilibili {bilibili} was provided by the owner on {data['bilibili']['provided_on']}; it is not a live follower counter. Stars sum only the {len(data['projects'])} featured repositories, including the attributed ClawTeam adaptation. -->
 '''
 
 
@@ -285,7 +288,7 @@ def main():
         for filename,content in [('hero',hero(t, animated=name=='dark')),('metrics',metrics(t,data)),('flagship',flagship(t,data['projects'][0]['stars']))]:
             (ASSETS/f'{filename}-{name}.svg').write_text(content)
     (ASSETS/'hero-dark-static.svg').write_text(hero(THEMES['dark'], animated=True, reduced=True))
-    for stem in ['hero-dark', 'hero-dark-static']:
+    for stem in ['hero-dark', 'hero-dark-static', 'metrics-dark', 'metrics-light']:
         (ASSETS/versioned_asset(stem)).write_bytes((ASSETS/f'{stem}.svg').read_bytes())
     for p in data['projects']:
         (ASSETS/f"stars-{p['repo'].split('/')[1].lower()}.svg").write_text(badge(p['stars']))
