@@ -41,10 +41,11 @@ receive the static core and no decorative motion. The light hero stays static.
 The README also selects `hero-dark-static.svg` through a picture media source
 when reduced motion is requested, so the fallback does not depend on media
 emulation propagating into an external SVG image.
-The animated image uses a direct raw.githubusercontent.com URL with a content
-hash so browsers pick up visual edits without waiting for an older image to
-leave their cache. A relative GitHub /raw/ link drops query parameters during
-its redirect, so it cannot reliably preserve that cache version.
+The README uses content-hashed image filenames, generated automatically from
+`hero-dark.svg` and `hero-dark-static.svg`. Changing the artwork changes its
+URL path, avoiding stale branch-image caches and redirects that drop query
+parameters. Canonical SVG filenames remain available. Rendering identical
+artwork reuses the same aliases; older aliases can remain for existing links.
 Regenerate through the main renderer so the weekly refresh preserves this design.
 
 To undo the redesign, revert the profile commit. No other project is modified.

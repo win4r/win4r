@@ -130,10 +130,14 @@ def button(label, kind):
     return svg(170,46,c,label)
 
 
+def versioned_asset(stem):
+    digest = hashlib.sha256((ASSETS/f'{stem}.svg').read_bytes()).hexdigest()[:12]
+    return f'{stem}-{digest}.svg'
+
+
 def picture(name, alt, width="100%"):
-    reduced_source = ('  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/hero-dark-static.svg">\n' if name == 'hero' else '')
-    version = ('?v=' + hashlib.sha256((ASSETS/'hero-dark.svg').read_bytes()).hexdigest()[:12] if name == 'hero' else '')
-    dark_source = (f'https://raw.githubusercontent.com/win4r/win4r/main/assets/hero-dark.svg{version}' if name == 'hero' else f'./assets/{name}-dark.svg')
+    reduced_source = (f'  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/{versioned_asset("hero-dark-static")}">\n' if name == 'hero' else '')
+    dark_source = (f'./assets/{versioned_asset("hero-dark")}' if name == 'hero' else f'./assets/{name}-dark.svg')
     return f'''<picture>
 {reduced_source}  <source media="(prefers-color-scheme: dark)" srcset="{dark_source}">
   <source media="(prefers-color-scheme: light)" srcset="./assets/{name}-light.svg">
@@ -281,6 +285,8 @@ def main():
         for filename,content in [('hero',hero(t, animated=name=='dark')),('metrics',metrics(t,data)),('flagship',flagship(t,data['projects'][0]['stars']))]:
             (ASSETS/f'{filename}-{name}.svg').write_text(content)
     (ASSETS/'hero-dark-static.svg').write_text(hero(THEMES['dark'], animated=True, reduced=True))
+    for stem in ['hero-dark', 'hero-dark-static']:
+        (ASSETS/versioned_asset(stem)).write_bytes((ASSETS/f'{stem}.svg').read_bytes())
     for p in data['projects']:
         (ASSETS/f"stars-{p['repo'].split('/')[1].lower()}.svg").write_text(badge(p['stars']))
     for kind,label in [('youtube','YouTube'),('bilibili','Bilibili'),('x','Follow on X'),('blog','Read the blog')]:
