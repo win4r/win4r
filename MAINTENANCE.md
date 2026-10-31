@@ -32,4 +32,17 @@ The header, metrics and flagship panel have light and dark variants using HTML
 `picture` sources. Project descriptions remain native GitHub text for readability
 on narrow screens. SVGs contain no scripts, external fonts or embedded web pages.
 
+The dark hero uses `scripts/hero_motion.py`: a 24-second looping 3D wireframe,
+three computation slices, a scanning plane, moving data pulses and two orbital
+particles. Projected geometry is generated offline and interpolated by native
+SVG animation; subtle orbit and glow effects use internal CSS. No JavaScript is
+embedded in the SVG. Text stays stationary. Browsers requesting reduced motion
+receive the static core and no decorative motion. The light hero stays static.
+The README also selects `hero-dark-static.svg` through a picture media source
+when reduced motion is requested, so the fallback does not depend on media
+emulation propagating into an external SVG image.
+The animated image URL includes a content hash so browsers pick up visual edits
+without waiting for an older image to leave their cache.
+Regenerate through the main renderer so the weekly refresh preserves this design.
+
 To undo the redesign, revert the profile commit. No other project is modified.

@@ -3,12 +3,14 @@
 import argparse
 import copy
 import datetime as dt
+import hashlib
 import html
 import json
 import math
 import os
 from pathlib import Path
 import urllib.request
+from hero_motion import animated_core
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
@@ -29,7 +31,7 @@ def svg(w, h, content, title):
 <g font-family="{FONT}">{content}</g></svg>\n'''
 
 
-def hero(t):
+def hero(t, animated=False, reduced=False):
     c = f'''<defs>
       <radialGradient id="halo"><stop stop-color="{t['accent']}" stop-opacity=".16"/><stop offset="1" stop-color="{t['bg']}" stop-opacity="0"/></radialGradient>
       <linearGradient id="edge"><stop stop-color="{t['accent']}"/><stop offset="1" stop-color="{t['violet']}"/></linearGradient>
@@ -37,7 +39,7 @@ def hero(t):
     <rect x="1" y="1" width="1198" height="468" rx="24" fill="{t['bg']}" stroke="{t['line']}"/>
     <circle cx="950" cy="226" r="239" fill="url(#halo)"/>
     <path d="M56 91H1144" stroke="{t['line']}"/>
-    <circle cx="64" cy="53" r="5" fill="{t['accent']}"/>
+    <circle cx="64" cy="53" r="5" fill="{t['accent']}"{' class="hero-live"' if animated and not reduced else ''}/>
     {txt(82,59,'CHAO QIN / WIN4R',17,t['muted'],600,extra='letter-spacing="3"')}
     {txt(1144,60,'AI超元域',23,t['ink'],600,extra='text-anchor="end"')}
     {txt(56,184,'Build with AI.',66,t['ink'],700,extra='letter-spacing="-2.5"')}
@@ -45,23 +47,28 @@ def hero(t):
     {txt(59,313,'Agents. Memory. AI coding.',23,t['muted'])}
     <path d="M58 368H615" stroke="{t['line']}"/>
     {txt(58,411,'OPEN SOURCE × HANDS-ON AI',16,t['muted'],500,extra='letter-spacing="2.3"')}
-    <g transform="translate(948 241)" fill="none" stroke="{t['line']}">
+    '''
+    if animated:
+        c += animated_core(t, reduced=reduced)
+    else:
+        c += f'''<g transform="translate(948 241)" fill="none" stroke="{t['line']}">
       <circle r="139"/><circle r="107" stroke-dasharray="2 10"/><circle r="66"/>
       <ellipse rx="139" ry="52" transform="rotate(-35)" stroke="{t['accent']}" stroke-opacity=".65"/>
       <ellipse rx="139" ry="52" transform="rotate(35)" stroke="{t['violet']}" stroke-opacity=".65"/>
       <ellipse rx="139" ry="52" transform="rotate(90)"/>
       <path d="M-139 0H139M0-139V139" stroke-dasharray="3 8"/>
     </g>'''
-    for i in range(28):
-        a = i * math.tau / 28
-        x, y = 948 + math.cos(a)*139, 241+math.sin(a)*139
-        c += f'<circle cx="{x:.2f}" cy="{y:.2f}" r="{3 if i%7==0 else 1.5}" fill="{t["accent"]}" opacity="{1 if i%7==0 else .5}"/>'
-    c += f'''<g transform="translate(948 241)">
+        for i in range(28):
+            a = i * math.tau / 28
+            x, y = 948 + math.cos(a)*139, 241+math.sin(a)*139
+            c += f'<circle cx="{x:.2f}" cy="{y:.2f}" r="{3 if i%7==0 else 1.5}" fill="{t["accent"]}" opacity="{1 if i%7==0 else .5}"/>'
+        c += f'''<g transform="translate(948 241)">
       <rect x="-38" y="-38" width="76" height="76" rx="20" fill="{t['panel']}" stroke="url(#edge)"/>
       <path d="M-13 8L0-15 13 8M-8 0H8M-16 17H16" stroke="{t['accent']}" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       <circle cx="-111" cy="-82" r="6" fill="{t['accent']}"/>
       <circle cx="119" cy="72" r="6" fill="{t['violet']}"/>
-    </g>
+    </g>'''
+    c += f'''
     {txt(948,418,'EXPLORE → BUILD → SHARE',12,t['muted'],500,extra='text-anchor="middle" letter-spacing="1.5"')}
     <path d="M56 468H1144" stroke="url(#edge)" stroke-width="2"/>
     '''
@@ -124,8 +131,10 @@ def button(label, kind):
 
 
 def picture(name, alt, width="100%"):
+    reduced_source = ('  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/hero-dark-static.svg">\n' if name == 'hero' else '')
+    version = ('?v=' + hashlib.sha256((ASSETS/'hero-dark.svg').read_bytes()).hexdigest()[:12] if name == 'hero' else '')
     return f'''<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/{name}-dark.svg">
+{reduced_source}  <source media="(prefers-color-scheme: dark)" srcset="./assets/{name}-dark.svg{version}">
   <source media="(prefers-color-scheme: light)" srcset="./assets/{name}-light.svg">
   <img src="./assets/{name}-light.svg" alt="{html.escape(alt,quote=True)}" width="{width}">
 </picture>'''
@@ -268,8 +277,9 @@ def main():
         config.write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n')
     ASSETS.mkdir(exist_ok=True)
     for name,t in THEMES.items():
-        for filename,content in [('hero',hero(t)),('metrics',metrics(t,data)),('flagship',flagship(t,data['projects'][0]['stars']))]:
+        for filename,content in [('hero',hero(t, animated=name=='dark')),('metrics',metrics(t,data)),('flagship',flagship(t,data['projects'][0]['stars']))]:
             (ASSETS/f'{filename}-{name}.svg').write_text(content)
+    (ASSETS/'hero-dark-static.svg').write_text(hero(THEMES['dark'], animated=True, reduced=True))
     for p in data['projects']:
         (ASSETS/f"stars-{p['repo'].split('/')[1].lower()}.svg").write_text(badge(p['stars']))
     for kind,label in [('youtube','YouTube'),('bilibili','Bilibili'),('x','Follow on X'),('blog','Read the blog')]:
