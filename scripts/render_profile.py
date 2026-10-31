@@ -115,6 +115,7 @@ def badge(stars):
 def button(label, kind):
     icons = {
         'youtube':'<rect x="16" y="14" width="24" height="17" rx="5" fill="#FF6477"/><path d="M26 18L33 22.5 26 27Z" fill="#0D171D"/>',
+        'bilibili':'<g fill="none" stroke="#73D5EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10L25 14M34 10L30 14"/><rect x="16" y="14" width="24" height="19" rx="4"/><path d="M22 21L24 23M34 21L32 23M25 28H31"/></g>',
         'x':'<path d="M18 13L35 32H31L14 13ZM33 13H36L17 32H14Z" fill="#E5F2ED"/>',
         'blog':'<circle cx="27" cy="22.5" r="10" stroke="#9BE8C4" fill="none"/><ellipse cx="27" cy="22.5" rx="4" ry="10" stroke="#9BE8C4" fill="none"/><path d="M17 22.5H37" stroke="#9BE8C4"/>',
     }
@@ -172,9 +173,10 @@ def readme(data):
 </p>
 
 <p align="center">
-  <a href="https://www.youtube.com/@AIsuperdomain"><img src="./assets/youtube.svg" alt="Watch AI超元域 on YouTube" width="153"></a>
-  <a href="https://x.com/AISuperDomain"><img src="./assets/x.svg" alt="Follow @AISuperDomain on X" width="153"></a>
-  <a href="https://www.aivi.fyi/"><img src="./assets/blog.svg" alt="Read AI超元域's technical blog" width="153"></a>
+  <a href="https://www.youtube.com/@AIsuperdomain"><img src="./assets/youtube.svg" alt="Watch AI超元域 on YouTube" width="138"></a>
+  <a href="https://space.bilibili.com/3493277319825652"><img src="./assets/bilibili.svg" alt="Watch AI超元域 on Bilibili" width="138"></a>
+  <a href="https://x.com/AISuperDomain"><img src="./assets/x.svg" alt="Follow @AISuperDomain on X" width="138"></a>
+  <a href="https://www.aivi.fyi/"><img src="./assets/blog.svg" alt="Read AI超元域's technical blog" width="138"></a>
 </p>
 
 {picture('metrics',f"{sum(stars.values()):,} GitHub stars across {len(data['projects'])} featured projects · {youtube} YouTube subscribers")}
@@ -219,7 +221,7 @@ Hands-on AI tests, agent workflows and tutorials — with the projects and imple
 </tr>
 </table>
 
-**More from the lab:** [Unlimited-OCR-2 deployment & document tests](https://youtu.be/W7lSIikNJBI) · [All videos](https://www.youtube.com/@AIsuperdomain/videos) · [Technical articles](https://www.aivi.fyi/)
+**More from the lab:** [Unlimited-OCR-2 deployment & document tests](https://youtu.be/W7lSIikNJBI) · [YouTube videos](https://www.youtube.com/@AIsuperdomain/videos) · [Bilibili videos](https://space.bilibili.com/3493277319825652) · [Technical articles](https://www.aivi.fyi/)
 
 ## Currently exploring
 
@@ -231,7 +233,7 @@ Hands-on AI tests, agent workflows and tutorials — with the projects and imple
 
 <p align="center">
   <b>Build something useful. Share what you learn.</b><br>
-  <sub>Find me on <a href="https://www.youtube.com/@AIsuperdomain">YouTube</a>, <a href="https://x.com/AISuperDomain">X</a> or <a href="https://www.aivi.fyi/">the blog</a> · Away from the keyboard: archery.</sub>
+  <sub>Find me on <a href="https://www.youtube.com/@AIsuperdomain">YouTube</a>, <a href="https://space.bilibili.com/3493277319825652">Bilibili</a>, <a href="https://x.com/AISuperDomain">X</a> or <a href="https://www.aivi.fyi/">the blog</a> · Away from the keyboard: archery.</sub>
 </p>
 
 <!-- GitHub stars refreshed {data['github_verified_on']}. YouTube {youtube} is a manually verified lower bound as of {data['youtube']['verified_on']}; it is not a live subscriber counter. Stars sum only the {len(data['projects'])} featured repositories, including the attributed ClawTeam adaptation. -->
@@ -270,7 +272,7 @@ def main():
             (ASSETS/f'{filename}-{name}.svg').write_text(content)
     for p in data['projects']:
         (ASSETS/f"stars-{p['repo'].split('/')[1].lower()}.svg").write_text(badge(p['stars']))
-    for kind,label in [('youtube','YouTube'),('x','Follow on X'),('blog','Read the blog')]:
+    for kind,label in [('youtube','YouTube'),('bilibili','Bilibili'),('x','Follow on X'),('blog','Read the blog')]:
         (ASSETS/f'{kind}.svg').write_text(button(label,kind))
     (ROOT/'README.md').write_text(readme(data))
     print(f"Rendered profile with {sum(p['stars'] for p in data['projects']):,} featured-project stars.")

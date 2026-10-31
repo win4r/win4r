@@ -12,9 +12,10 @@
 </p>
 
 <p align="center">
-  <a href="https://www.youtube.com/@AIsuperdomain"><img src="./assets/youtube.svg" alt="Watch AI超元域 on YouTube" width="153"></a>
-  <a href="https://x.com/AISuperDomain"><img src="./assets/x.svg" alt="Follow @AISuperDomain on X" width="153"></a>
-  <a href="https://www.aivi.fyi/"><img src="./assets/blog.svg" alt="Read AI超元域's technical blog" width="153"></a>
+  <a href="https://www.youtube.com/@AIsuperdomain"><img src="./assets/youtube.svg" alt="Watch AI超元域 on YouTube" width="138"></a>
+  <a href="https://space.bilibili.com/3493277319825652"><img src="./assets/bilibili.svg" alt="Watch AI超元域 on Bilibili" width="138"></a>
+  <a href="https://x.com/AISuperDomain"><img src="./assets/x.svg" alt="Follow @AISuperDomain on X" width="138"></a>
+  <a href="https://www.aivi.fyi/"><img src="./assets/blog.svg" alt="Read AI超元域's technical blog" width="138"></a>
 </p>
 
 <picture>
@@ -114,7 +115,7 @@ Hands-on AI tests, agent workflows and tutorials — with the projects and imple
 </tr>
 </table>
 
-**More from the lab:** [Unlimited-OCR-2 deployment & document tests](https://youtu.be/W7lSIikNJBI) · [All videos](https://www.youtube.com/@AIsuperdomain/videos) · [Technical articles](https://www.aivi.fyi/)
+**More from the lab:** [Unlimited-OCR-2 deployment & document tests](https://youtu.be/W7lSIikNJBI) · [YouTube videos](https://www.youtube.com/@AIsuperdomain/videos) · [Bilibili videos](https://space.bilibili.com/3493277319825652) · [Technical articles](https://www.aivi.fyi/)
 
 ## Currently exploring
 
@@ -126,7 +127,7 @@ Hands-on AI tests, agent workflows and tutorials — with the projects and imple
 
 <p align="center">
   <b>Build something useful. Share what you learn.</b><br>
-  <sub>Find me on <a href="https://www.youtube.com/@AIsuperdomain">YouTube</a>, <a href="https://x.com/AISuperDomain">X</a> or <a href="https://www.aivi.fyi/">the blog</a> · Away from the keyboard: archery.</sub>
+  <sub>Find me on <a href="https://www.youtube.com/@AIsuperdomain">YouTube</a>, <a href="https://space.bilibili.com/3493277319825652">Bilibili</a>, <a href="https://x.com/AISuperDomain">X</a> or <a href="https://www.aivi.fyi/">the blog</a> · Away from the keyboard: archery.</sub>
 </p>
 
 <!-- GitHub stars refreshed 2026-10-31. YouTube 77K+ is a manually verified lower bound as of 2026-10-30; it is not a live subscriber counter. Stars sum only the 7 featured repositories, including the attributed ClawTeam adaptation. -->
