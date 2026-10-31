@@ -133,8 +133,9 @@ def button(label, kind):
 def picture(name, alt, width="100%"):
     reduced_source = ('  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/hero-dark-static.svg">\n' if name == 'hero' else '')
     version = ('?v=' + hashlib.sha256((ASSETS/'hero-dark.svg').read_bytes()).hexdigest()[:12] if name == 'hero' else '')
+    dark_source = (f'https://raw.githubusercontent.com/win4r/win4r/main/assets/hero-dark.svg{version}' if name == 'hero' else f'./assets/{name}-dark.svg')
     return f'''<picture>
-{reduced_source}  <source media="(prefers-color-scheme: dark)" srcset="./assets/{name}-dark.svg{version}">
+{reduced_source}  <source media="(prefers-color-scheme: dark)" srcset="{dark_source}">
   <source media="(prefers-color-scheme: light)" srcset="./assets/{name}-light.svg">
   <img src="./assets/{name}-light.svg" alt="{html.escape(alt,quote=True)}" width="{width}">
 </picture>'''

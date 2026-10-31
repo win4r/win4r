@@ -41,8 +41,10 @@ receive the static core and no decorative motion. The light hero stays static.
 The README also selects `hero-dark-static.svg` through a picture media source
 when reduced motion is requested, so the fallback does not depend on media
 emulation propagating into an external SVG image.
-The animated image URL includes a content hash so browsers pick up visual edits
-without waiting for an older image to leave their cache.
+The animated image uses a direct raw.githubusercontent.com URL with a content
+hash so browsers pick up visual edits without waiting for an older image to
+leave their cache. A relative GitHub /raw/ link drops query parameters during
+its redirect, so it cannot reliably preserve that cache version.
 Regenerate through the main renderer so the weekly refresh preserves this design.
 
 To undo the redesign, revert the profile commit. No other project is modified.
