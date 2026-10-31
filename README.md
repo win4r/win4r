@@ -46,14 +46,14 @@
 <tr>
 <td width="50%" valign="top">
 <sub>MULTI-MODEL WORKSPACE</sub>
-<h3><a href="https://github.com/win4r/AISuperDomain">AISuperDomain</a></h3>
+<h3><a href="https://github.com/win4r/AISuperDomain">AISuper&#8203;Domain</a></h3>
 <p>Ask once. Compare answers from multiple AI models in one desktop workspace.</p>
 <a href="https://github.com/win4r/AISuperDomain/stargazers"><img src="./assets/stars-aisuperdomain.svg" alt="1,997 GitHub stars" height="24"></a>
 
 </td>
 <td width="50%" valign="top">
 <sub>MULTI-AGENT COORDINATION</sub>
-<h3><a href="https://github.com/win4r/ClawTeam-OpenClaw">ClawTeam-OpenClaw</a></h3>
+<h3><a href="https://github.com/win4r/ClawTeam-OpenClaw">ClawTeam-&#8203;OpenClaw</a></h3>
 <p>Bring CLI coding agents together with OpenClaw as the default agent.</p>
 <a href="https://github.com/win4r/ClawTeam-OpenClaw/stargazers"><img src="./assets/stars-clawteam-openclaw.svg" alt="1,469 GitHub stars" height="24"></a>
 <p><sub>OpenClaw adaptation of <a href="https://github.com/HKUDS/ClawTeam">HKUDS/ClawTeam</a>.</sub></p>
@@ -62,14 +62,14 @@
 <tr>
 <td width="50%" valign="top">
 <sub>CLAUDE CODE FIELD NOTES</sub>
-<h3><a href="https://github.com/win4r/cc-notebook">cc-notebook</a></h3>
+<h3><a href="https://github.com/win4r/cc-notebook">cc-&#8203;notebook</a></h3>
 <p>Explore notes on context, memory, model switching and multi-agent architecture.</p>
 <a href="https://github.com/win4r/cc-notebook/stargazers"><img src="./assets/stars-cc-notebook.svg" alt="903 GitHub stars" height="24"></a>
 
 </td>
 <td width="50%" valign="top">
 <sub>KNOWLEDGE & RETRIEVAL</sub>
-<h3><a href="https://github.com/win4r/GraphRAG4OpenWebUI">GraphRAG4OpenWebUI</a></h3>
+<h3><a href="https://github.com/win4r/GraphRAG4OpenWebUI">GraphRAG4&#8203;OpenWebUI</a></h3>
 <p>Connect Microsoft GraphRAG to Open WebUI with local, global and web search.</p>
 <a href="https://github.com/win4r/GraphRAG4OpenWebUI/stargazers"><img src="./assets/stars-graphrag4openwebui.svg" alt="605 GitHub stars" height="24"></a>
 
@@ -78,14 +78,14 @@
 <tr>
 <td width="50%" valign="top">
 <sub>AGENT INTEROPERABILITY</sub>
-<h3><a href="https://github.com/win4r/openclaw-a2a-gateway">openclaw-a2a-gateway</a></h3>
+<h3><a href="https://github.com/win4r/openclaw-a2a-gateway">openclaw-&#8203;a2a-&#8203;gateway</a></h3>
 <p>Let OpenClaw agents discover and communicate with each other across servers.</p>
 <a href="https://github.com/win4r/openclaw-a2a-gateway/stargazers"><img src="./assets/stars-openclaw-a2a-gateway.svg" alt="552 GitHub stars" height="24"></a>
 
 </td>
 <td width="50%" valign="top">
 <sub>REUSABLE AGENT SKILL</sub>
-<h3><a href="https://github.com/win4r/OpenClaw-Skill">OpenClaw-Skill</a></h3>
+<h3><a href="https://github.com/win4r/OpenClaw-Skill">OpenClaw-&#8203;Skill</a></h3>
 <p>Install, configure, operate and troubleshoot OpenClaw with an AI coding assistant.</p>
 <a href="https://github.com/win4r/OpenClaw-Skill/stargazers"><img src="./assets/stars-openclaw-skill.svg" alt="312 GitHub stars" height="24"></a>
 

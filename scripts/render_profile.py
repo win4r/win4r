@@ -142,13 +142,21 @@ def readme(data):
       ('OpenClaw-Skill','REUSABLE AGENT SKILL','Install, configure, operate and troubleshoot OpenClaw with an AI coding assistant.',''),
     ]
     rows=[]
+    display_names = {
+      'AISuperDomain': 'AISuper&#8203;Domain',
+      'ClawTeam-OpenClaw': 'ClawTeam-&#8203;OpenClaw',
+      'cc-notebook': 'cc-&#8203;notebook',
+      'GraphRAG4OpenWebUI': 'GraphRAG4&#8203;OpenWebUI',
+      'openclaw-a2a-gateway': 'openclaw-&#8203;a2a-&#8203;gateway',
+      'OpenClaw-Skill': 'OpenClaw-&#8203;Skill',
+    }
     for i in range(0,len(cards),2):
         cells=[]
         for name,category,desc,note in cards[i:i+2]:
             n=stars['win4r/'+name]
             cells.append(f'''<td width="50%" valign="top">
 <sub>{category}</sub>
-<h3><a href="https://github.com/win4r/{name}">{name}</a></h3>
+<h3><a href="https://github.com/win4r/{name}">{display_names[name]}</a></h3>
 <p>{desc}</p>
 <a href="https://github.com/win4r/{name}/stargazers"><img src="./assets/stars-{name.lower()}.svg" alt="{n:,} GitHub stars" height="24"></a>
 {'<p><sub>'+note+'</sub></p>' if note else ''}
