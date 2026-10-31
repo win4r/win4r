@@ -78,7 +78,7 @@ def hero(t, animated=False, reduced=False):
 def metrics(t, data):
     total = sum(p['stars'] for p in data['projects'])
     youtube = f"{data['youtube']['minimum_subscribers'] // 1000}K+"
-    bilibili = f"{data['bilibili']['followers']:,}"
+    bilibili = f"{data['bilibili']['followers'] // 1000}K+"
     c = f'<rect x="1" y="1" width="1198" height="156" rx="20" fill="{t["panel"]}" stroke="{t["line"]}"/>'
     for x in [302,602,902]:
         c += f'<path d="M{x} 32V126" stroke="{t["line"]}"/>'
@@ -150,7 +150,7 @@ def picture(name, alt, width="100%"):
 def readme(data):
     stars = {p['repo']:p['stars'] for p in data['projects']}
     youtube = f"{data['youtube']['minimum_subscribers'] // 1000}K+"
-    bilibili = f"{data['bilibili']['followers']:,}"
+    bilibili = f"{data['bilibili']['followers'] // 1000}K+"
     cards = [
       ('AISuperDomain','MULTI-MODEL WORKSPACE','Ask once. Compare answers from multiple AI models in one desktop workspace.',''),
       ('ClawTeam-OpenClaw','MULTI-AGENT COORDINATION','Bring CLI coding agents together with OpenClaw as the default agent.','OpenClaw adaptation of <a href="https://github.com/HKUDS/ClawTeam">HKUDS/ClawTeam</a>.'),
@@ -253,7 +253,7 @@ Hands-on AI tests, agent workflows and tutorials — with the projects and imple
   <sub>Find me on <a href="https://www.youtube.com/@AIsuperdomain">YouTube</a>, <a href="https://space.bilibili.com/3493277319825652">Bilibili</a>, <a href="https://x.com/AISuperDomain">X</a> or <a href="https://www.aivi.fyi/">the blog</a> · Away from the keyboard: archery.</sub>
 </p>
 
-<!-- GitHub stars refreshed {data['github_verified_on']}. YouTube {youtube} is a manually verified lower bound as of {data['youtube']['verified_on']}; it is not a live subscriber counter. Bilibili {bilibili} was provided by the owner on {data['bilibili']['provided_on']}; it is not a live follower counter. Stars sum only the {len(data['projects'])} featured repositories, including the attributed ClawTeam adaptation. -->
+<!-- GitHub stars refreshed {data['github_verified_on']}. YouTube {youtube} is a manually verified lower bound as of {data['youtube']['verified_on']}; it is not a live subscriber counter. Bilibili {data['bilibili']['followers']:,} (displayed as {bilibili}) was provided by the owner on {data['bilibili']['provided_on']}; it is not a live follower counter. Stars sum only the {len(data['projects'])} featured repositories, including the attributed ClawTeam adaptation. -->
 '''
 
 

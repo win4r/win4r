@@ -20,7 +20,8 @@ When raising this milestone, update `minimum_subscribers` and the verification
 date in `profile.json`, then render. No channel API key is stored.
 
 Bilibili's **108,350 followers** was supplied by the profile owner on 2026-10-30.
-This is a manually maintained count, stored as `bilibili.followers` in
+The panel shows **108K+** to match YouTube's **77K+** notation. The exact count
+is manually maintained, stored as `bilibili.followers` in
 `profile.json`; the GitHub star refresh preserves it. Both metric-panel themes
 use content-hashed filenames so updated counts are visible without stale images.
 
