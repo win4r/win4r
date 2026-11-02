@@ -20,9 +20,9 @@
 </p>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/metrics-dark-e5264c55a45e.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/metrics-light-237348814482.svg">
-  <img src="./assets/metrics-light-237348814482.svg" alt="10,289 GitHub stars across 7 featured projects · 77K+ YouTube subscribers · 108K+ Bilibili followers" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/metrics-dark-cc53ac37d6dc.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/metrics-light-bc61441d8378.svg">
+  <img src="./assets/metrics-light-bc61441d8378.svg" alt="10,293 GitHub stars across 7 featured projects · 77K+ YouTube subscribers · 108K+ Bilibili followers" width="100%">
 </picture>
 
 <p align="center">
@@ -57,7 +57,7 @@
 <sub>MULTI-AGENT COORDINATION</sub>
 <h3><a href="https://github.com/win4r/ClawTeam-OpenClaw">ClawTeam-&#8203;OpenClaw</a></h3>
 <p>Bring CLI coding agents together with OpenClaw as the default agent.</p>
-<a href="https://github.com/win4r/ClawTeam-OpenClaw/stargazers"><img src="./assets/stars-clawteam-openclaw.svg" alt="1,469 GitHub stars" height="24"></a>
+<a href="https://github.com/win4r/ClawTeam-OpenClaw/stargazers"><img src="./assets/stars-clawteam-openclaw.svg" alt="1,471 GitHub stars" height="24"></a>
 <p><sub>OpenClaw adaptation of <a href="https://github.com/HKUDS/ClawTeam">HKUDS/ClawTeam</a>.</sub></p>
 </td>
 </tr>
@@ -66,14 +66,14 @@
 <sub>CLAUDE CODE FIELD NOTES</sub>
 <h3><a href="https://github.com/win4r/cc-notebook">cc-&#8203;notebook</a></h3>
 <p>Explore notes on context, memory, model switching and multi-agent architecture.</p>
-<a href="https://github.com/win4r/cc-notebook/stargazers"><img src="./assets/stars-cc-notebook.svg" alt="903 GitHub stars" height="24"></a>
+<a href="https://github.com/win4r/cc-notebook/stargazers"><img src="./assets/stars-cc-notebook.svg" alt="904 GitHub stars" height="24"></a>
 
 </td>
 <td width="50%" valign="top">
 <sub>KNOWLEDGE & RETRIEVAL</sub>
 <h3><a href="https://github.com/win4r/GraphRAG4OpenWebUI">GraphRAG4&#8203;OpenWebUI</a></h3>
 <p>Connect Microsoft GraphRAG to Open WebUI with local, global and web search.</p>
-<a href="https://github.com/win4r/GraphRAG4OpenWebUI/stargazers"><img src="./assets/stars-graphrag4openwebui.svg" alt="605 GitHub stars" height="24"></a>
+<a href="https://github.com/win4r/GraphRAG4OpenWebUI/stargazers"><img src="./assets/stars-graphrag4openwebui.svg" alt="604 GitHub stars" height="24"></a>
 
 </td>
 </tr>
@@ -131,4 +131,4 @@ Hands-on AI tests, agent workflows and tutorials — with the projects and imple
   <sub>Find me on <a href="https://www.youtube.com/@AIsuperdomain">YouTube</a>, <a href="https://space.bilibili.com/3493277319825652">Bilibili</a>, <a href="https://x.com/AISuperDomain">X</a> or <a href="https://www.aivi.fyi/">the blog</a> · Away from the keyboard: archery.</sub>
 </p>
 
-<!-- GitHub stars refreshed 2026-10-31. YouTube 77K+ is a manually verified lower bound as of 2026-10-30; it is not a live subscriber counter. Bilibili 108,350 (displayed as 108K+) was provided by the owner on 2026-10-30; it is not a live follower counter. Stars sum only the 7 featured repositories, including the attributed ClawTeam adaptation. -->
+<!-- GitHub stars refreshed 2026-11-02. YouTube 77K+ is a manually verified lower bound as of 2026-10-30; it is not a live subscriber counter. Bilibili 108,350 (displayed as 108K+) was provided by the owner on 2026-10-30; it is not a live follower counter. Stars sum only the 7 featured repositories, including the attributed ClawTeam adaptation. -->
