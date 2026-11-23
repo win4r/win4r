@@ -12,19 +12,19 @@
   "projects": [
     {
       "repo": "CortexReach/memory-lancedb-pro",
-      "stars": 4449
+      "stars": 4446
     },
     {
       "repo": "win4r/AISuperDomain",
-      "stars": 1997
+      "stars": 1998
     },
     {
       "repo": "win4r/ClawTeam-OpenClaw",
-      "stars": 1475
+      "stars": 1476
     },
     {
       "repo": "win4r/cc-notebook",
-      "stars": 913
+      "stars": 915
     },
     {
       "repo": "win4r/GraphRAG4OpenWebUI",
@@ -32,12 +32,12 @@
     },
     {
       "repo": "win4r/openclaw-a2a-gateway",
-      "stars": 551
+      "stars": 548
     },
     {
       "repo": "win4r/OpenClaw-Skill",
       "stars": 314
     }
   ],
-  "github_verified_on": "2026-11-16"
+  "github_verified_on": "2026-11-23"
 }
